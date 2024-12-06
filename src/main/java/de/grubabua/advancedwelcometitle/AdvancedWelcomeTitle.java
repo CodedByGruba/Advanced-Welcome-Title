@@ -2,7 +2,11 @@ package de.grubabua.advancedwelcometitle;
 
 import de.grubabua.advancedwelcometitle.commands.*;
 import de.grubabua.advancedwelcometitle.welcome.WelcomeEvents;
+import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -10,6 +14,7 @@ import java.io.File;
 public final class AdvancedWelcomeTitle extends JavaPlugin {
     private ConfigManager configManager;
     private File configFile;
+    private BukkitAudiences adventure;
 
 
     public static FileConfiguration config;
@@ -20,7 +25,7 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
         configManager = new ConfigManager(configFile);
         configManager.loadConfig();
 
-
+        adventure = BukkitAudiences.create(this);
 
         getServer().getPluginManager().registerEvents(new WelcomeEvents(), this);
 
@@ -41,6 +46,10 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
     public void onDisable() {
         configManager.saveConfig();
         saveConfig();
+    }
+    public void sendMiniMessage(Player player, String miniMessage) {
+        Component message = MiniMessage.miniMessage().deserialize(miniMessage);
+        adventure.player(player).sendMessage(message);
     }
 }
 
