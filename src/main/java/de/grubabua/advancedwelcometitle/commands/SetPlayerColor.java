@@ -13,34 +13,27 @@ import org.checkerframework.common.value.qual.IntRangeFromGTENegativeOne;
 import java.text.MessageFormat;
 import java.util.HashMap;
 
-public class setPlayerColor implements CommandExecutor {
+public class SetPlayerColor implements CommandExecutor {
     private final AdvancedWelcomeTitle plugin;
 
-    public setPlayerColor(AdvancedWelcomeTitle plugin) {
+    public SetPlayerColor(AdvancedWelcomeTitle plugin) {
         this.plugin = plugin;
         initializePlayerColorMap();
     }
     private HashMap<String, String> playerColorMap = new HashMap();
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("WelcomeOperator")){
-            String color = args[0].toLowerCase();
-            Player player = (Player) sender;
-            String playerColor = playerColorMap.get(color);
-            sender.sendMessage("§aPlayer welcome color set to " + playerColor + args[0]);
-            player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1, 5);
-            plugin.getConfig().set("welcometitle.playercolor", playerColor);
+        if (!sender.hasPermission("advancedwelcometitle.admin")) {
+            sender.sendMessage("§cYou have no Permission for this");
+            return false;
         }
+        String color = args[0].toLowerCase();
+        Player player = (Player) sender;
+        String playerColor = playerColorMap.get(color);
+        sender.sendMessage("§aPlayer welcome color set to " + playerColor + args[0]);
+        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1, 5);
+        plugin.getConfig().set("welcometitle.playercolor", playerColor);
         return true;
-    }
-
-    //TODO: remove testVoid when playerColorCommand works
-    void testVoid(CommandSender sender, Player player, String color) {
-        String playercolor = "§e";
-        sender.sendMessage("§aPlayer welcome color set to " + playercolor + color);
-        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1,5);
-        plugin.getConfig().set("welcometitle.playercolor", playercolor);
-        plugin.saveConfig();
     }
     void initializePlayerColorMap() {
         playerColorMap.put("black", "§0");
@@ -55,9 +48,9 @@ public class setPlayerColor implements CommandExecutor {
         playerColorMap.put("blue", "§9");
         playerColorMap.put("green", "§a");
         playerColorMap.put("aqua", "§b");
-        playerColorMap.put("red", "c");
-        playerColorMap.put("lightpurple", "d");
-        playerColorMap.put("yellow", "e");
-        playerColorMap.put("reset", "r");
+        playerColorMap.put("red", "§c");
+        playerColorMap.put("lightpurple", "§d");
+        playerColorMap.put("yellow", "§e");
+        playerColorMap.put("reset", "§r");
     }
 }
