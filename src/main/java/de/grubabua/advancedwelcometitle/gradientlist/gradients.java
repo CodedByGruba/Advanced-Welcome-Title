@@ -9,16 +9,22 @@ public class gradients {
     public gradients() {
         //asd
     }
-    String[][] gradientColors = {{"1", "12"}, {"2"}, {"3"}, {"4"}, {"5"}, {"6"}, {"7"}};
+    HashMap<Integer, String> gradientMap = new HashMap<Integer, String>();
 
     public static String createGradient(String message, int number) {
         return null;
     }
 
 
-
-
-
+    void initializeGradientMap() {
+        gradientMap.put(1, "<gradient:#FB0000:#FFFFFF>");
+        gradientMap.put(2, "<gradient:#C3175B:#015790>");
+        gradientMap.put(3, "<gradient:#FE4D1E:#FFC291>");
+        gradientMap.put(4, "<gradient:#44FF67:#B3846C>");
+        gradientMap.put(5, "<gradient:#FB0000:#FFFFFF>");
+        gradientMap.put(6, "<gradient:#FB0000:#FFFFFF>");
+        gradientMap.put(7, "<gradient:#FB0000:#FFFFFF>");
+    }
 
 
 
