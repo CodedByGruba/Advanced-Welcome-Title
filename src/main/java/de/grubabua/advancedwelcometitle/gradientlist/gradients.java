@@ -20,10 +20,10 @@ public class gradients {
         gradientMap.put(1, "<gradient:#FB0000:#FFFFFF>");
         gradientMap.put(2, "<gradient:#C3175B:#015790>");
         gradientMap.put(3, "<gradient:#FE4D1E:#FFC291>");
-        gradientMap.put(4, "<gradient:#44FF67:#B3846C>");
-        gradientMap.put(5, "<gradient:#FB0000:#FFFFFF>");
-        gradientMap.put(6, "<gradient:#FB0000:#FFFFFF>");
-        gradientMap.put(7, "<gradient:#FB0000:#FFFFFF>");
+        gradientMap.put(4, "<gradient:#8F37FF:#B3846C>");
+        gradientMap.put(5, "<gradient:#44FF67:#D9F6D0>");
+        gradientMap.put(6, "<gradient:#FE0000:#370000>");
+        gradientMap.put(7, "<gradient:#61686C:#CFCFCF>");
     }
 
 
@@ -142,7 +142,7 @@ public class gradients {
     }
     public static String createGradientTitle7(String message) {
 
-        String[] colors = {"§x§6§1§6§8§6§C", "§x§6§5§6§B§6§F", "§x§6§8§6§F§7§2", "§x§6§C§7§2§7§6", "§x§6§F§7§5§7§9", "§x§7§3§7§9§7§C", "§x§7§6§7§C§7§F", "§x§7§A§7§F§8§2", "§x§7§D§8§3§8§6", "§x§8§1§8§6§8§9", "§x§8§4§8§9§8§C", "§x§8§8§8§D§8§F", "§x§8§C§9§0§9§2", "§x§8§F§9§3§9§6", "§x§9§3§9§7§9§9", "§x§9§6§9§A§9§C", "§x§9§A§9§D§9§F", "§x§9§D§A§0§A§2", "§x§A§1§A§4§A§5", "§x§A§4§A§7§A§9", "§x§A§8§A§A§A§C", "§x§A§C§A§E§A§F", "§x§A§F§B§1§B§2", "§x§B§3§B§4§B§5", "§x§B§6§B§8§B§9", "§x§B§A§B§B§B§C", "§x§B§D§B§E§B§F", "§x§C§1§C§2§C§2", "§x§C§4§C§5§C§5", "§x§C§8§C§8§C§9", "§x§C§B§C§C§C§C", "§x§C§F§C§F§C§FT" };
+        String[] colors = {"§x§6§1§6§8§6§C", "§x§6§5§6§B§6§F", "§x§6§8§6§F§7§2", "§x§6§C§7§2§7§6", "§x§6§F§7§5§7§9", "§x§7§3§7§9§7§C", "§x§7§6§7§C§7§F", "§x§7§A§7§F§8§2", "§x§7§D§8§3§8§6", "§x§8§1§8§6§8§9", "§x§8§4§8§9§8§C", "§x§8§8§8§D§8§F", "§x§8§C§9§0§9§2", "§x§8§F§9§3§9§6", "§x§9§3§9§7§9§9", "§x§9§6§9§A§9§C", "§x§9§A§9§D§9§F", "§x§9§D§A§0§A§2", "§x§A§1§A§4§A§5", "§x§A§4§A§7§A§9", "§x§A§8§A§A§A§C", "§x§A§C§A§E§A§F", "§x§A§F§B§1§B§2", "§x§B§3§B§4§B§5", "§x§B§6§B§8§B§9", "§x§B§A§B§B§B§C", "§x§B§D§B§E§B§F", "§x§C§1§C§2§C§2", "§x§C§4§C§5§C§5", "§x§C§8§C§8§C§9", "§x§C§B§C§C§C§C", "§x§C§F§C§F§C§F" };
 
         StringBuilder gradientTitle7 = new StringBuilder();
 
