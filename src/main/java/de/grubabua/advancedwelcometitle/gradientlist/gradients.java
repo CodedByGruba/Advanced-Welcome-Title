@@ -1,18 +1,17 @@
 package de.grubabua.advancedwelcometitle.gradientlist;
 
-import com.sun.org.apache.bcel.internal.generic.ANEWARRAY;
-
-import java.text.MessageFormat;
 import java.util.HashMap;
 
 public class gradients {
     public gradients() {
-        //asd
+        initializeGradientMap();
     }
-    HashMap<Integer, String> gradientMap = new HashMap<Integer, String>();
+    static HashMap<Integer, String> gradientMap = new HashMap<Integer, String>();
 
-    public static String createGradient(String message, int number) {
-        return null;
+    public static String createGradient(String message, int gradientNumber) {
+        String createdString = null;
+        createdString = gradientMap.get(gradientNumber) + message + "</gradient>";
+        return createdString;
     }
 
 
@@ -28,7 +27,7 @@ public class gradients {
 
 
 
-
+    //TODO: Remove old Funktions if new method works
 
 
     public static String createGradientTitle1(String message) {
