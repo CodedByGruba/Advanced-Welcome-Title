@@ -20,7 +20,7 @@ public class SetPlayerColor implements CommandExecutor {
         this.plugin = plugin;
         initializePlayerColorMap();
     }
-    private HashMap<String, String> playerColorMap = new HashMap();
+    private HashMap<String, String> playerColorMap = new HashMap<>();
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!sender.hasPermission("advancedwelcometitle.admin")) {

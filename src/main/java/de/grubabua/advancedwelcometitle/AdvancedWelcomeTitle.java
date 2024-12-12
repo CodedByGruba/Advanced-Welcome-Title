@@ -45,6 +45,10 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
         Component message = MiniMessage.miniMessage().deserialize(miniMessage);
         player.sendMessage(String.valueOf(message));
     }
+    public String createMiniMessage(String miniMessage) {
+        Component message = MiniMessage.miniMessage().deserialize(miniMessage);
+        return String.valueOf(message);
+    }
 }
 
 

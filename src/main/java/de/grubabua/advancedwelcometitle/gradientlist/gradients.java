@@ -1,6 +1,30 @@
 package de.grubabua.advancedwelcometitle.gradientlist;
 
+import com.sun.org.apache.bcel.internal.generic.ANEWARRAY;
+
+import java.text.MessageFormat;
+import java.util.HashMap;
+
 public class gradients {
+    public gradients() {
+        //asd
+    }
+    String[][] gradientColors = {{"1", "12"}, {"2"}, {"3"}, {"4"}, {"5"}, {"6"}, {"7"}};
+
+    public static String createGradient(String message, int number) {
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
     public static String createGradientTitle1(String message) {
 
         String[] colors = {"§x§F§B§0§0§0§0", "§x§F§B§0§8§0§8", "§x§F§B§1§0§1§0", "§x§F§B§1§9§1§9", "§x§F§C§2§1§2§1", "§x§F§C§2§9§2§9", "§x§F§C§3§1§3§1", "§x§F§C§3§A§3§A", "§x§F§C§4§2§4§2", "§x§F§C§4§A§4§A", "§x§F§C§5§2§5§2", "§x§F§C§5§A§5§A", "§x§F§D§6§3§6§3", "§x§F§D§6§B§6§B", "§x§F§D§7§3§7§3", "§x§F§D§7§B§7§B", "§x§F§D§8§4§8§4", "§x§F§D§8§C§8§C", "§x§F§D§9§4§9§4", "§x§F§D§9§C§9§C", "§x§F§E§A§5§A§5", "§x§F§E§A§D§A§D", "§x§F§E§B§5§B§5", "§x§F§E§B§D§B§D", "§x§F§E§C§5§C§5", "§x§F§E§C§E§C§E", "§x§F§E§D§6§D§6", "§x§F§E§D§E§D§E", "§x§F§F§E§6§E§6", "§x§F§F§E§F§E§F", "§x§F§F§F§7§F§7", "§x§F§F§F§F§F§F"};
@@ -128,4 +152,5 @@ public class gradients {
         }
         return gradientTitle7.toString();
     }
+
 }
