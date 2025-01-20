@@ -1,7 +1,7 @@
 package de.grubabua.advancedwelcometitle.commands;
 
 import de.grubabua.advancedwelcometitle.AdvancedWelcomeTitle;
-import de.grubabua.advancedwelcometitle.gradientlist.gradients;
+import de.grubabua.advancedwelcometitle.gradientlist.Gradients;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.command.Command;
@@ -13,9 +13,11 @@ import java.util.StringJoiner;
 
 public class setFirstTitle implements CommandExecutor {
     private final AdvancedWelcomeTitle plugin;
+    private final Gradients gradients;
 
-    public setFirstTitle(AdvancedWelcomeTitle plugin) {
+    public setFirstTitle(AdvancedWelcomeTitle plugin, Gradients gradients) {
         this.plugin = plugin;
+        this.gradients = gradients;
     }
 
     @Override
@@ -27,27 +29,24 @@ public class setFirstTitle implements CommandExecutor {
                 return true;
             }
 
-            String gradient = args[0].toLowerCase();
+            int gradientNumber = Integer.parseInt(args[0]);
             StringJoiner messageBuilder = new StringJoiner(" ");
             for (int i = 1; i < args.length; i++) {
                 messageBuilder.add(args[i]);
             }
 
-
-            String wowsmessage = messageBuilder.toString().replaceAll("\\s", "");
-            int length = wowsmessage.length();
             String message = messageBuilder.toString();
 
 
+            if (gradientNumber <= 7) {
+                String gradientTitle = gradients.createGradientMessage(message, gradientNumber);
+//                sender.sendMessage("§aFirst title set to: " + gradientTitle);
+                plugin.sendMiniMessage(player, "First title set to: " + gradientTitle);
+                plugin.getConfig().set("welcometitle.firsttext", gradientTitle);
+                plugin.saveConfig();
 
-            if (length >= 11) {
-                sender.sendMessage("§cUsage: Title can't be longer then 10");
-                return true;
-            }
-
-
-            if (gradient.matches("[1-7]")) {
-                if (gradient.equals("1")){
+                //TODO: Delete old Method INMW
+                /*if (gradient.equals("1")){
                     String gradientTitle = gradients.createGradientTitle1(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.firsttext", gradientTitle);
@@ -88,7 +87,7 @@ public class setFirstTitle implements CommandExecutor {
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.firsttext", gradientTitle);
                     plugin.saveConfig();
-                }
+                }*/
                 player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1,5);
                 return true;
 

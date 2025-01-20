@@ -2,15 +2,14 @@ package de.grubabua.advancedwelcometitle.gradientlist;
 
 import java.util.HashMap;
 
-public class gradients {
-    public gradients() {
+public class Gradients {
+    public Gradients() {
         initializeGradientMap();
     }
     static HashMap<Integer, String> gradientMap = new HashMap<Integer, String>();
 
-    public static String createGradient(String message, int gradientNumber) {
-        String createdString = null;
-        createdString = gradientMap.get(gradientNumber) + message + "</gradient>";
+    public static String createGradientMessage(String message, int gradientNumber) {
+        String createdString = gradientMap.get(gradientNumber) + message + "</gradient>";
         return createdString;
     }
 
@@ -25,11 +24,7 @@ public class gradients {
         gradientMap.put(7, "<gradient:#61686C:#CFCFCF>");
     }
 
-
-
     //TODO: Remove old Funktions if new method works
-
-
     public static String createGradientTitle1(String message) {
 
         String[] colors = {"§x§F§B§0§0§0§0", "§x§F§B§0§8§0§8", "§x§F§B§1§0§1§0", "§x§F§B§1§9§1§9", "§x§F§C§2§1§2§1", "§x§F§C§2§9§2§9", "§x§F§C§3§1§3§1", "§x§F§C§3§A§3§A", "§x§F§C§4§2§4§2", "§x§F§C§4§A§4§A", "§x§F§C§5§2§5§2", "§x§F§C§5§A§5§A", "§x§F§D§6§3§6§3", "§x§F§D§6§B§6§B", "§x§F§D§7§3§7§3", "§x§F§D§7§B§7§B", "§x§F§D§8§4§8§4", "§x§F§D§8§C§8§C", "§x§F§D§9§4§9§4", "§x§F§D§9§C§9§C", "§x§F§E§A§5§A§5", "§x§F§E§A§D§A§D", "§x§F§E§B§5§B§5", "§x§F§E§B§D§B§D", "§x§F§E§C§5§C§5", "§x§F§E§C§E§C§E", "§x§F§E§D§6§D§6", "§x§F§E§D§E§D§E", "§x§F§F§E§6§E§6", "§x§F§F§E§F§E§F", "§x§F§F§F§7§F§7", "§x§F§F§F§F§F§F"};
@@ -49,6 +44,7 @@ public class gradients {
 
         return gradientTitle1.toString();
     }
+
     public static String createGradientTitle2(String message) {
 
         String[] colors = {"§x§C§3§1§7§5§B", "§x§B§D§1§9§5§D", "§x§B§6§1§B§5§E", "§x§B§0§1§D§6§0", "§x§A§A§1§F§6§2", "§x§A§4§2§1§6§4", "§x§9§D§2§3§6§5", "§x§9§7§2§5§6§7", "§x§9§1§2§8§6§9", "§x§8§B§2§A§6§A", "§x§8§4§2§C§6§C", "§x§7§E§2§E§6§E", "§x§7§8§3§0§7§0", "§x§7§2§3§2§7§1", "§x§6§B§3§4§7§3", "§x§6§5§3§6§7§5", "§x§5§F§3§8§7§6", "§x§5§9§3§A§7§8", "§x§5§2§3§C§7§S", "§x§4§C§3§E§7§B", "§x§4§6§4§0§7§D", "§x§4§0§4§2§7§F", "§x§3§9§4§4§8§1", "§x§3§3§4§6§8§2", "§x§2§D§4§9§8§4", "§x§2§7§4§B§8§6", "§x§2§0§4§D§8§7", "§x§1§A§4§F§8§9", "§x§1§4§5§1§8§B", "§x§0§E§5§3§8§D", "§x§0§7§5§5§8§E", "§x§0§1§5§7§9§0"};

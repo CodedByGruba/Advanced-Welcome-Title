@@ -1,9 +1,9 @@
 name: AdvancedWelcomeTitle
 version: '${project.version}'
 main: de.grubabua.advancedwelcometitle.AdvancedWelcomeTitle
-api-version: '1.20'
+api-version: '1.21'
 authors: [grubabua]
-website: https://github.com/DEGrubabuaDEV
+website: https://github.com/CodedByGruba
 
 commands:
   setFirsttitle:

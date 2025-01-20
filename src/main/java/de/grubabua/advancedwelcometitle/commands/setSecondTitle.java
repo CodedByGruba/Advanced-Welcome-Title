@@ -1,7 +1,7 @@
 package de.grubabua.advancedwelcometitle.commands;
 
 import de.grubabua.advancedwelcometitle.AdvancedWelcomeTitle;
-import de.grubabua.advancedwelcometitle.gradientlist.gradients;
+import de.grubabua.advancedwelcometitle.gradientlist.Gradients;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.command.Command;
@@ -51,43 +51,43 @@ public class setSecondTitle implements CommandExecutor {
 
             if (gradient.matches("[1-7]")) {
                 if (gradient.equals("1")){
-                    String gradientTitle = gradients.createGradientTitle1(message);
+                    String gradientTitle = Gradients.createGradientTitle1(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
                     plugin.saveConfig();
                 }
                 else if (gradient.equals("2")) {
-                    String gradientTitle = gradients.createGradientTitle2(message);
+                    String gradientTitle = Gradients.createGradientTitle2(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
                     plugin.saveConfig();
                 }
                 else if (gradient.equals("3")) {
-                    String gradientTitle = gradients.createGradientTitle3(message);
+                    String gradientTitle = Gradients.createGradientTitle3(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
                     plugin.saveConfig();
                 }
                 else if (gradient.equals("4")) {
-                    String gradientTitle = gradients.createGradientTitle4(message);
+                    String gradientTitle = Gradients.createGradientTitle4(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
                     plugin.saveConfig();
                 }
                 else if (gradient.equals("5")) {
-                    String gradientTitle = gradients.createGradientTitle5(message);
+                    String gradientTitle = Gradients.createGradientTitle5(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
                     plugin.saveConfig();
                 }
                 else if (gradient.equals("6")) {
-                    String gradientTitle = gradients.createGradientTitle6(message);
+                    String gradientTitle = Gradients.createGradientTitle6(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
                     plugin.saveConfig();
                 }
                 else if (gradient.equals("7")) {
-                    String gradientTitle = gradients.createGradientTitle7(message);
+                    String gradientTitle = Gradients.createGradientTitle7(message);
                     sender.sendMessage("§aFirst title set to: " + gradientTitle);
                     plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
                     plugin.saveConfig();

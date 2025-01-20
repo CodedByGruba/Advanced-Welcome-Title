@@ -1,6 +1,7 @@
 package de.grubabua.advancedwelcometitle;
 
 import de.grubabua.advancedwelcometitle.commands.*;
+import de.grubabua.advancedwelcometitle.gradientlist.Gradients;
 import de.grubabua.advancedwelcometitle.welcome.WelcomeEvents;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -11,9 +12,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 
 public final class AdvancedWelcomeTitle extends JavaPlugin {
+    public FileConfiguration config;
     private ConfigManager configManager;
     private File configFile;
-    public static FileConfiguration config;
+    private Gradients gradients;
 
     @Override
     public void onEnable() {
@@ -22,18 +24,10 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
         configManager = new ConfigManager(configFile);
         configManager.loadConfig();
 
-        getServer().getPluginManager().registerEvents(new WelcomeEvents(), this);
+        gradients = new Gradients();
 
-        getCommand("setFirstTitle").setExecutor(new setFirstTitle(this));
-        getCommand("setFirstTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setFirstTitle());
-        getCommand("setSecondTitle").setExecutor(new setSecondTitle(this));
-        getCommand("setSecondTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setSecondTitle());
-        getCommand("setPlayerColor").setExecutor(new SetPlayerColor(this));
-        getCommand("setPlayerColor").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setPlayerColor());
-        getCommand("showGradientList").setExecutor(new showGradientList());
-        getCommand("playerJoinMessage").setExecutor(new PlayerJoinMessage(this));
-
-
+        registerListener();
+        registerCommands();
     }
 
     @Override
@@ -41,13 +35,24 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
         configManager.saveConfig();
         saveConfig();
     }
-    public void sendMiniMessage(Player player, String miniMessage) {
-        Component message = MiniMessage.miniMessage().deserialize(miniMessage);
-        player.sendMessage(String.valueOf(message));
+
+    public void sendMiniMessage(Player player, String message) {
+        Component parsedMessage = MiniMessage.miniMessage().deserialize(message);
+        player.sendMessage(parsedMessage);
     }
-    public String createMiniMessage(String miniMessage) {
-        Component message = MiniMessage.miniMessage().deserialize(miniMessage);
-        return String.valueOf(message);
+
+    private void registerCommands() {
+        getCommand("setFirstTitle").setExecutor(new setFirstTitle(this, gradients));
+        getCommand("setFirstTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setFirstTitle());
+        getCommand("setSecondTitle").setExecutor(new setSecondTitle(this));
+        getCommand("setSecondTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setSecondTitle());
+        getCommand("setPlayerColor").setExecutor(new SetPlayerColor(this));
+        getCommand("setPlayerColor").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setPlayerColor());
+        getCommand("showGradientList").setExecutor(new showGradientList());
+        getCommand("playerJoinMessage").setExecutor(new PlayerJoinMessage(this));
+    }
+    private void registerListener() {
+        getServer().getPluginManager().registerEvents(new WelcomeEvents(this), this);
     }
 }
 
