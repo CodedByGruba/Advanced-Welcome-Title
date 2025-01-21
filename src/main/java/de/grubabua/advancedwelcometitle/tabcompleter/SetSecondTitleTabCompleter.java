@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class setFirstTitle implements TabCompleter {
+public class SetSecondTitleTabCompleter implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender.hasPermission("WelcomeOperator")) {
@@ -23,6 +23,7 @@ public class setFirstTitle implements TabCompleter {
                 gradients.add("5");
                 gradients.add("6");
                 gradients.add("7");
+                gradients.add("own");
                 return gradients;
             }
         }

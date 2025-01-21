@@ -2,6 +2,9 @@ package de.grubabua.advancedwelcometitle;
 
 import de.grubabua.advancedwelcometitle.commands.*;
 import de.grubabua.advancedwelcometitle.gradientlist.Gradients;
+import de.grubabua.advancedwelcometitle.tabcompleter.SetFirstTitleTabCompleter;
+import de.grubabua.advancedwelcometitle.tabcompleter.SetPlayerColorTabCompleter;
+import de.grubabua.advancedwelcometitle.tabcompleter.SetSecondTitleTabCompleter;
 import de.grubabua.advancedwelcometitle.welcome.JoinListener;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -28,6 +31,7 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
 
         registerListener();
         registerCommands();
+        registerTabCompleter();
     }
 
     @Override
@@ -44,16 +48,17 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
     private void registerListener() {
         getServer().getPluginManager().registerEvents(new JoinListener(this, gradients), this);
     }
-
     private void registerCommands() {
         getCommand("setFirstTitle").setExecutor(new SetFirstTitleCommand(this, gradients));
-        getCommand("setFirstTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setFirstTitle());
         getCommand("setSecondTitle").setExecutor(new SetSecondTitleCommand(this, gradients));
-        getCommand("setSecondTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setSecondTitle());
         getCommand("setPlayerColor").setExecutor(new SetPlayerColor(this));
-        getCommand("setPlayerColor").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setPlayerColor());
         getCommand("gradientList").setExecutor(new GradientListCommand(this, gradients));
         getCommand("playerJoinMessage").setExecutor(new PlayerJoinMessage(this));
+    }
+    private void registerTabCompleter() {
+        getCommand("setFirstTitle").setTabCompleter(new SetFirstTitleTabCompleter());
+        getCommand("setSecondTitle").setTabCompleter(new SetSecondTitleTabCompleter());
+        getCommand("setPlayerColor").setTabCompleter(new SetPlayerColorTabCompleter());
     }
 }
 

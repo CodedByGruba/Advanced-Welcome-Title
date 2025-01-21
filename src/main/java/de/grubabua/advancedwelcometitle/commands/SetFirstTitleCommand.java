@@ -49,7 +49,6 @@ public class SetFirstTitleCommand implements CommandExecutor {
 
             player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1,5);
             return true;
-
         } else {
             player.sendMessage("§cUsage: Invalid Gradient Number.");
         }
