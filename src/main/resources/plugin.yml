@@ -24,3 +24,11 @@ commands:
   permission:
     advancedwelcometitle.admin:
       description: "Permission for all Advanced Welcome Title commands"
+    advancedwelcometitle.command.setFirstTitle:
+      description: "Permission for /setFirstTitle"
+    advancedwelcometitle.command.setSecondTitle:
+      description: "Permission for /setSecondTitle"
+    advancedwelcometitle.command.setPlayerColor:
+      description: "Permission for /setPlayerColor"
+    advancedwelcometitle.command.gradientList:
+      description: "Permission for /gradientList"

@@ -42,8 +42,8 @@ public class SetPlayerColor implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (!sender.hasPermission("advancedwelcometitle.admin")) {
-            sender.sendMessage("§cYou have no Permission for this");
+        if (!sender.hasPermission("advancedwelcometitle.admin") && !sender.hasPermission("advancedwelcometitle.command.setPlayerColor")) {
+            sender.sendMessage("§cMissing §e'advancedwelcometitle.command.setPlayerColor'§c permission!");
             return false;
         }
         String color = args[0].toLowerCase();

@@ -21,8 +21,8 @@ public class GradientListCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (!sender.hasPermission("WelcomeOperator")) {
-            sender.sendMessage("§cMissing §e'WelcomeOperator'§c permission!");
+        if (!sender.hasPermission("advancedwelcometitle.admin") && !sender.hasPermission("advancedwelcometitle.command.gradientList")) {
+            sender.sendMessage("§cMissing §e'advancedwelcometitle.command.gradientList'§c permission!");
             return false;
         }
         Player player = (Player) sender;

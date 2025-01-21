@@ -22,8 +22,8 @@ public class SetFirstTitleCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (!sender.hasPermission("WelcomeOperator")) {
-            sender.sendMessage("§cMissing §e'WelcomeOperator'§c permission!");
+        if (!sender.hasPermission("advancedwelcometitle.admin") && !sender.hasPermission("advancedwelcometitle.command.setFirstTitle")) {
+            sender.sendMessage("§cMissing §e'advancedwelcometitle.command.setFirstTitle'§c permission!");
             return false;
         }
         if (args.length < 2) {
