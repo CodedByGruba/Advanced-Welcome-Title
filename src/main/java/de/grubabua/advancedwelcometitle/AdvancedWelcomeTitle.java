@@ -2,7 +2,7 @@ package de.grubabua.advancedwelcometitle;
 
 import de.grubabua.advancedwelcometitle.commands.*;
 import de.grubabua.advancedwelcometitle.gradientlist.Gradients;
-import de.grubabua.advancedwelcometitle.welcome.WelcomeEvents;
+import de.grubabua.advancedwelcometitle.welcome.JoinListener;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -42,7 +42,7 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
     }
 
     private void registerListener() {
-        getServer().getPluginManager().registerEvents(new WelcomeEvents(this), this);
+        getServer().getPluginManager().registerEvents(new JoinListener(this, gradients), this);
     }
 
     private void registerCommands() {

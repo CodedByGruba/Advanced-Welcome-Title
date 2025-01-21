@@ -12,15 +12,34 @@ import org.checkerframework.common.value.qual.IntRangeFromGTENegativeOne;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SetPlayerColor implements CommandExecutor {
     private final AdvancedWelcomeTitle plugin;
 
     public SetPlayerColor(AdvancedWelcomeTitle plugin) {
         this.plugin = plugin;
-        initializePlayerColorMap();
     }
-    private HashMap<String, String> playerColorMap = new HashMap<>();
+
+    private Map<String, String> playerColorMap = Map.ofEntries(
+            Map.entry("black", "<black>"),
+            Map.entry("darkblue", "<dark_blue>"),
+            Map.entry("darkgreen", "<dark_green>"),
+            Map.entry("darkaqua", "<dark_aqua>"),
+            Map.entry("darkred", "<dark_red>"),
+            Map.entry("darkpurple", "<dark_purple>"),
+            Map.entry("gold", "<gold>"),
+            Map.entry("gray", "<gray>"),
+            Map.entry("darkgray", "<dark_gray>"),
+            Map.entry("blue", "<blue>"),
+            Map.entry("green", "<green>"),
+            Map.entry("aqua", "<aqua>"),
+            Map.entry("red", "<red>"),
+            Map.entry("lightpurple", "<light_purple>"),
+            Map.entry("yellow", "<yellow>"),
+            Map.entry("reset", "<reset>")
+    );
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!sender.hasPermission("advancedwelcometitle.admin")) {
@@ -34,23 +53,5 @@ public class SetPlayerColor implements CommandExecutor {
         player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1, 5);
         plugin.getConfig().set("welcometitle.playercolor", playerColor);
         return true;
-    }
-    void initializePlayerColorMap() {
-        playerColorMap.put("black", "§0");
-        playerColorMap.put("darkblue", "§1");
-        playerColorMap.put("darkgreen", "§2");
-        playerColorMap.put("darkaqua", "§3");
-        playerColorMap.put("darkred", "§4");
-        playerColorMap.put("darkpurple", "§5");
-        playerColorMap.put("gold", "§6");
-        playerColorMap.put("gray", "§7");
-        playerColorMap.put("darkgray", "§8");
-        playerColorMap.put("blue", "§9");
-        playerColorMap.put("green", "§a");
-        playerColorMap.put("aqua", "§b");
-        playerColorMap.put("red", "§c");
-        playerColorMap.put("lightpurple", "§d");
-        playerColorMap.put("yellow", "§e");
-        playerColorMap.put("reset", "§r");
     }
 }
