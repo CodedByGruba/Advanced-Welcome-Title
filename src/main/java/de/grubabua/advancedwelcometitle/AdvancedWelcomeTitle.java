@@ -41,18 +41,19 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
         player.sendMessage(parsedMessage);
     }
 
+    private void registerListener() {
+        getServer().getPluginManager().registerEvents(new WelcomeEvents(this), this);
+    }
+
     private void registerCommands() {
-        getCommand("setFirstTitle").setExecutor(new setFirstTitle(this, gradients));
+        getCommand("setFirstTitle").setExecutor(new SetFirstTitleCommand(this, gradients));
         getCommand("setFirstTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setFirstTitle());
-        getCommand("setSecondTitle").setExecutor(new setSecondTitle(this));
+        getCommand("setSecondTitle").setExecutor(new SetSecondTitleCommand(this, gradients));
         getCommand("setSecondTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setSecondTitle());
         getCommand("setPlayerColor").setExecutor(new SetPlayerColor(this));
         getCommand("setPlayerColor").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setPlayerColor());
-        getCommand("showGradientList").setExecutor(new showGradientList());
+        getCommand("showGradientList").setExecutor(new ShowGradientListCommand());
         getCommand("playerJoinMessage").setExecutor(new PlayerJoinMessage(this));
-    }
-    private void registerListener() {
-        getServer().getPluginManager().registerEvents(new WelcomeEvents(this), this);
     }
 }
 
