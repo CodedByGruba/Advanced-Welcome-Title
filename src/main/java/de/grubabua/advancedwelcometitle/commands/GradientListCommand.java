@@ -10,11 +10,11 @@ import org.bukkit.entity.Player;
 import java.text.MessageFormat;
 import java.util.stream.Stream;
 
-public class ShowGradientListCommand implements CommandExecutor {
+public class GradientListCommand implements CommandExecutor {
     private final AdvancedWelcomeTitle plugin;
     private final Gradients gradients;
 
-    public ShowGradientListCommand(AdvancedWelcomeTitle plugin, Gradients gradients) {
+    public GradientListCommand(AdvancedWelcomeTitle plugin, Gradients gradients) {
         this.plugin = plugin;
         this.gradients = gradients;
     }
@@ -26,7 +26,7 @@ public class ShowGradientListCommand implements CommandExecutor {
             return false;
         }
         Player player = (Player) sender;
-        
+
         for (int i = 0; i <= 7; i++) {
             plugin.sendMiniMessage(player, gradients.createGradientMessage(MessageFormat.format("This is color gradient {0}", i), i));
         }

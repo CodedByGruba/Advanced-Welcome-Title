@@ -1,12 +1,8 @@
 package de.grubabua.advancedwelcometitle.gradientlist;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Gradients {
-    public Gradients() {
-
-    }
     static Map<Integer, String> gradientMap = Map.ofEntries(
             Map.entry(1, "<gradient:#FB0000:#FFFFFF>"),
             Map.entry(2, "<gradient:#C3175B:#015790>"),

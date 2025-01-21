@@ -15,7 +15,7 @@ commands:
   setPlayerColor:
     description: Set Player Color
     aliases:
-  showGradientList:
+  gradientList:
     description: Show Gradient List
     aliases:
   playerJoinMessage:
