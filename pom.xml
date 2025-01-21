@@ -12,10 +12,10 @@
   <name>AdvancedWelcomeTitle</name>
 
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>21</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-    <url>https://github.com/DEGrubabuaDEV</url>
+    <url>https://github.com/CodedByGruba</url>
 
     <build>
     <plugins>
@@ -52,8 +52,8 @@
 
   <repositories>
       <repository>
-          <id>spigotmc-repo</id>
-          <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+          <id>papermc-repo</id>
+          <url>https://repo.papermc.io/repository/maven-public/</url>
       </repository>
       <repository>
           <id>sonatype</id>
@@ -63,10 +63,20 @@
 
   <dependencies>
       <dependency>
-          <groupId>org.spigotmc</groupId>
-          <artifactId>spigot-api</artifactId>
-          <version>1.20.1-R0.1-SNAPSHOT</version>
+          <groupId>io.papermc.paper</groupId>
+          <artifactId>paper-api</artifactId>
+          <version>1.21.4-R0.1-SNAPSHOT</version>
           <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>net.kyori</groupId>
+          <artifactId>adventure-text-minimessage</artifactId>
+          <version>4.17.0</version>
+      </dependency>
+      <dependency>
+          <groupId>net.kyori</groupId>
+          <artifactId>adventure-platform-bukkit</artifactId>
+          <version>4.1.0</version>
       </dependency>
   </dependencies>
 </project>
