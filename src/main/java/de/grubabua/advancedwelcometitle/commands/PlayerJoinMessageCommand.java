@@ -8,9 +8,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class PlayerJoinMessage implements CommandExecutor {
+public class PlayerJoinMessageCommand implements CommandExecutor {
     private final AdvancedWelcomeTitle plugin;
-    public PlayerJoinMessage(AdvancedWelcomeTitle plugin) {
+    public PlayerJoinMessageCommand(AdvancedWelcomeTitle plugin) {
         this.plugin = plugin;
     }
     @Override

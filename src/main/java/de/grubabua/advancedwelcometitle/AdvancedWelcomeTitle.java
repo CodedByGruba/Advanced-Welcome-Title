@@ -53,7 +53,7 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
         getCommand("setSecondTitle").setExecutor(new SetSecondTitleCommand(this, gradients));
         getCommand("setPlayerColor").setExecutor(new SetPlayerColor(this));
         getCommand("gradientList").setExecutor(new GradientListCommand(this, gradients));
-        getCommand("playerJoinMessage").setExecutor(new PlayerJoinMessage(this));
+        getCommand("playerJoinMessage").setExecutor(new PlayerJoinMessageCommand(this));
     }
     private void registerTabCompleter() {
         getCommand("setFirstTitle").setTabCompleter(new SetFirstTitleTabCompleter());
