@@ -33,8 +33,12 @@ public class SetSecondTitleCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        int gradientNumber = Integer.parseInt(args[0]);
         StringJoiner messageBuilder = new StringJoiner(" ");
+        int gradientNumber = 0;
+        if (!args[0].equalsIgnoreCase("own")) {
+            gradientNumber = Integer.parseInt(args[0]);
+        }
+
         for (int i = 1; i < args.length; i++) {
             messageBuilder.add(args[i]);
         }
@@ -42,19 +46,25 @@ public class SetSecondTitleCommand implements CommandExecutor {
         String message = messageBuilder.toString();
 
 
-        if (gradientNumber <= 7) {
+        if (gradientNumber <= 7 && gradientNumber >= 1) {
             String gradientTitle = gradients.createGradientMessage(message, gradientNumber);
-            plugin.sendMiniMessage(player, "Second title set to: " + gradientTitle);
-            plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
-            plugin.saveConfig();
-
-            player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1, 5);
-            return true;
-
+            saveTitle(gradientTitle, player);
+        } else if (args[0].equalsIgnoreCase("own")) {
+            String gradientTitle = message;
+            saveTitle(gradientTitle, player);
         } else {
             player.sendMessage("§cUsage: Invalid Gradient Number.");
+            return false;
         }
         return true;
+    }
+
+    private void saveTitle(String gradientTitle, Player player) {
+        plugin.sendMiniMessage(player, "Second title set to: " + gradientTitle);
+        plugin.getConfig().set("welcometitle.secondtext", gradientTitle);
+        plugin.saveConfig();
+
+        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.MASTER, 1,5);
     }
 }
 
