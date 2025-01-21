@@ -52,7 +52,7 @@ public final class AdvancedWelcomeTitle extends JavaPlugin {
         getCommand("setSecondTitle").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setSecondTitle());
         getCommand("setPlayerColor").setExecutor(new SetPlayerColor(this));
         getCommand("setPlayerColor").setTabCompleter(new de.grubabua.advancedwelcometitle.tabcompleter.setPlayerColor());
-        getCommand("showGradientList").setExecutor(new ShowGradientListCommand());
+        getCommand("showGradientList").setExecutor(new ShowGradientListCommand(this, gradients));
         getCommand("playerJoinMessage").setExecutor(new PlayerJoinMessage(this));
     }
 }

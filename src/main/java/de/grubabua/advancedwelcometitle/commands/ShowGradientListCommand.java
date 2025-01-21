@@ -1,32 +1,35 @@
 package de.grubabua.advancedwelcometitle.commands;
 
+import de.grubabua.advancedwelcometitle.AdvancedWelcomeTitle;
 import de.grubabua.advancedwelcometitle.gradientlist.Gradients;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import java.text.MessageFormat;
+import java.util.stream.Stream;
 
 public class ShowGradientListCommand implements CommandExecutor {
+    private final AdvancedWelcomeTitle plugin;
+    private final Gradients gradients;
+
+    public ShowGradientListCommand(AdvancedWelcomeTitle plugin, Gradients gradients) {
+        this.plugin = plugin;
+        this.gradients = gradients;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("WelcomeOperator")){
-
-            //TODO: Create Better Funktion
-//            String gradientTitle = gradients.createGradientMessage(message, gradientNumber);
-
-            /*sender.sendMessage(Gradients.createGradientTitle1("This is color gradient 1"));
-            sender.sendMessage(Gradients.createGradientTitle2("This is color gradient 2"));
-            sender.sendMessage(Gradients.createGradientTitle3("This is color gradient 3"));
-            sender.sendMessage(Gradients.createGradientTitle4("This is color gradient 4"));
-            sender.sendMessage(Gradients.createGradientTitle5("This is color gradient 5"));
-            sender.sendMessage(Gradients.createGradientTitle6("This is color gradient 6"));
-            sender.sendMessage(Gradients.createGradientTitle7("This is color gradient 7"));*/
-
-            return true;
+        if (!sender.hasPermission("WelcomeOperator")) {
+            sender.sendMessage("§cMissing §e'WelcomeOperator'§c permission!");
+            return false;
         }
-        else if (!sender.hasPermission("WelcomeOperator")) {
-            sender.sendMessage("§cYou can't do that! Usage: Missing Operator Permission");
-            return true;
+        Player player = (Player) sender;
+        
+        for (int i = 0; i <= 7; i++) {
+            plugin.sendMiniMessage(player, gradients.createGradientMessage(MessageFormat.format("This is color gradient {0}", i), i));
         }
-        return false;
+        return true;
     }
 }

@@ -17,7 +17,7 @@ public class Gradients {
             Map.entry(7, "<gradient:#61686C:#CFCFCF>")
     );
 
-    public static String createGradientMessage(String message, int gradientNumber) {
+    public String createGradientMessage(String message, int gradientNumber) {
         String createdString = gradientMap.get(gradientNumber) + message + "</gradient>";
         return createdString;
     }
